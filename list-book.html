@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Book Exchange | List a Book</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Campus Book Exchange</h1>
+    <p>Share Your Books with Fellow Students</p>
+    <h2 id="formHeading">List Your Book</h2>
+    <button onclick="changeFormHeadingSize()">
+        Change Heading Font Size
+    </button>
+    <button onclick="toggleBookForm()">
+        Show / Hide Form
+    </button>
+    <form id="bookForm" onsubmit="submitBook(event)">
+    <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" placeholder="Name">
+                <label for="newBookTitle">Book Title:</label>
+                <input type="text" id="title" placeholder="Book Title">
+                <label for="author">Author:</label>
+                <input type="text" id="author" placeholder="Enter author name">
+                <label for="category">Subject / Category:</label>
+                <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="condition">Book Condition:</label>
+                <select id="condition" required>
+                    <option value="">Select book condition</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Good">Good</option>
+                    <option value="Acceptable">Acceptable</option>
+                </select>
+                <button type="submit">Submit Book</button>
+            </form>
+            <div id="formMessage" class="message"></div>
+            <script>
+                function changeFormHeadingSize() {
+                    const formHeading = document.getElementById('formHeading');
+                    formHeading.style.fontSize = '2em';
+                }
+                function toggleBookForm() {
+                    const bookForm = document.getElementById('bookForm');
+                    if (bookForm.style.display === 'none') {
+                        bookForm.style.display = 'block';
+                    } else {
+                        bookForm.style.display = 'none';
+                    }
+                }
+                function submitBook(event) {
+                    event.preventDefault();
+                    const studentName = document.getElementById('studentName').value;
+                    const title = document.getElementById('title').value;
+                    const author = document.getElementById('author').value;
+                    const category = document.getElementById('category').value;
+                    const condition = document.getElementById('condition').value;
+                    const formMessage = document.getElementById('formMessage');
+                    formMessage.textContent = `Thank you, ${studentName}! Your book "${title}" by ${author} has been listed under ${category} in ${condition} condition.`;
+                }
+            </script>
+</body>
+</html>

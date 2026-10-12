@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Book Exchange | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .heading {
+            text-align: center;
+            padding: 20px;
+        }
+        .heading h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+        .heading p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <h1 style="color: #333; font-size: 2.5em; text-align: center;">Welcome to Campus Book Exchange!</h1>
+    <p>Share Knowledge, Exchange Books!</p>
+    <a href="./home.html">Home</a>
+    <a href="./books.html">Browse Books</a>
+    <a href="./list-book.html">List a Book</a>
+            <h2 id="mainHeading">Campus Book Exchange!</h2>
+            <p>Exchange or share your old textbooks with fellow students.Find useful books, help others, and save money while learning.</p>
+            <button onclick="changeHeading()">
+                Change Main Heading
+            </button>
+        </section>
+        <section class="content-section">
+            <h2>How It Works</h2>
+            <div class="info-card">
+                <h3>Find Books</h3>
+                <p>Browse books shared by other students.</p>
+            </div>
+            <div class="info-card">
+                <h3>Request a Book</h3>
+                <p>Request a book that you need for your studies.</p>
+            </div>
+            <div class="info-card">
+                <h3>Share Books</h3>
+                <p>List your old books for other students to use.</p>
+            </div>
+        </section>
+        <section class="content-section">
+            <h2>Featured Books</h2>
+            <button onclick="toggleFeaturedBooks()">
+                Show / Hide Featured Books
+            </button>
+            <div id="featuredBooks" class="book-container">
+                <div class="book-card featured-card">
+                    <p>Author: Yashavant Kanetkar</p>
+                    <p>Category: Programming</p>
+                </div>
+                <div class="book-card featured-card">
+                    <h3>Engineering Mathematics</h3>
+                    <p>Author: B. S. Grewal</p>
+                    <p>Category: Mathematics</p>
+                </div>
+                <div class="book-card featured-card">
+                    <h3>Digital Logic Design</h3>
+                    <p>Author: M. Morris Mano</p>
+                    <p>Category: Electronics</p>
+                </div>
+            </div>
+            <button onclick="changeCardColor()">
+                Change Featured Book Colour
+            </button>
+            <script>
+                function changeCardColor() {
+                    const cards = document.querySelectorAll('.featured-card');
+                    cards.forEach(card => {
+                        card.style.backgroundColor = '#e0f7fa';
+                    });
+                }
+                function toggleFeaturedBooks() {
+                    const featuredBooks = document.getElementById('featuredBooks');
+                    if (featuredBooks.style.display === 'none') {
+                        featuredBooks.style.display = 'flex';
+                    } else {
+                        featuredBooks.style.display = 'none';
+                    }
+                }
+                function changeHeading() {
+                    const mainHeading = document.getElementById('mainHeading');
+                    mainHeading.textContent = 'Welcome to the Campus Book Exchange Service!';
+                }
+            </script>
+</body>
+</html>
